@@ -72,31 +72,6 @@
 | `employee_id` | `INTEGER` | `NOT NULL, FOREIGN KEY` | Ссылка на сотрудника |
 | `project_id` | `INTEGER` | `NOT NULL, FOREIGN KEY` | Ссылка на проект |
 
-## Связи между таблицами
 
-```sql
--- departments ↔ department_types
-ALTER TABLE departments ADD CONSTRAINT fk_departments_type 
-FOREIGN KEY (type_id) REFERENCES department_types(id);
-
--- departments ↔ branches  
-ALTER TABLE departments ADD CONSTRAINT fk_departments_branch
-FOREIGN KEY (branch_id) REFERENCES branches(id);
-
--- employees ↔ positions
-ALTER TABLE employees ADD CONSTRAINT fk_employees_position
-FOREIGN KEY (position_id) REFERENCES positions(id);
-
--- employees ↔ departments
-ALTER TABLE employees ADD CONSTRAINT fk_employees_department
-FOREIGN KEY (department_id) REFERENCES departments(id);
-
--- employee_projects ↔ employees
-ALTER TABLE employee_projects ADD CONSTRAINT fk_ep_employee
-FOREIGN KEY (employee_id) REFERENCES employees(id);
-
--- employee_projects ↔ projects
-ALTER TABLE employee_projects ADD CONSTRAINT fk_ep_project
-FOREIGN KEY (project_id) REFERENCES projects(id);
 
 <img src = "img/img101.png" width = 100%>
